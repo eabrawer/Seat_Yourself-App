@@ -9,7 +9,6 @@ class CreateRestaurants < ActiveRecord::Migration
       t.integer :capacity
       t.integer :timeopen
       t.integer :timeclose
-
       t.timestamps
     end
   end

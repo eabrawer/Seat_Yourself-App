@@ -9,6 +9,30 @@
 	<li><%= @restaurant.timeclose %></li>
 </ul>
 
+<% if current_user %>
+ <h4>Make a Reservation</h4>
+  <%= form_for([@restaurant, @reservation]) do |f| %>
+
+    <fieldset>
+      Select Reservation Date and Time <em>(one hour increments only)</em>
+      <p>
+       <%= f.datetime_select :reservation_time, prompt: 
+       {day: 'Day', month: 'Month', year: 'Year', minute: false}, :start_year => Time.now.year, :end_year => Time.now.year + 2, :use_short_month => true, ampm: true, minute_step: 60, start_hour: 8, end_hour: 21 %>
+      </p>  
+
+      <p>
+       <%= f.submit "submit" %>
+      </p>
+    </fieldset>
+
+  <% end %>
+<% end %>
+
+
+<br />
+
+
+
  <%= link_to "Back to Main Page", restaurants_url %>
  <%= link_to "Edit Restaurant", edit_restaurant_path %>
  <%= link_to "Delete Restaurant", @restaurant, :confirm => "Are you sure you want to delete this restaurant?", :method => :delete %>
