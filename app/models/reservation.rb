@@ -2,6 +2,17 @@ class Reservation < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :restaurant
 	
+	validate :availability 
+
+	def availability
+		# if reservation
+		# 	party_size
+		# 	+ sum of all reservation paty sizes for this reservation_time
+		# 	is less than capacity
+		if false
+			errors[:party_size] << "No availability for your party size" 
+		end 
+	end
 	# before_create :validate_reservation
 
  #  	def validate_reservation

@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
       redirect_to restaurants_url, notice: 'Reservation created successfully'
     else
       flash[:alert] = "Sorry but there is no availability, please adjust your reservation time."
-      render "show"
+      render "restaurants/show"
     end
   end
 

@@ -13,7 +13,7 @@
  <h4>Make a Reservation at <%= @restaurant.name %></h4>
   <%= form_for([@restaurant, @reservation]) do |f| %>
 
-    <% render "form" %>
+    <% render "/restaurants/form" %>
 
     <fieldset>
       Select Reservation Date and Time <em>(one hour increments only)</em>
@@ -31,7 +31,7 @@
 <% end %>
 
 
-<%= @restaurant.reservations.each.inspect do |r| %>
+<% @restaurant.reservations.each do |r| %>
   <%= r.reservation_time %>
 <% end %>
 <br />
@@ -39,5 +39,5 @@
 
 
  <%= link_to "Back to Main Page", restaurants_url %>
- <%= link_to "Edit Restaurant", edit_restaurant_path %>
+ <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
  <%= link_to "Delete Restaurant", @restaurant, :confirm => "Are you sure you want to delete this restaurant?", :method => :delete %>
