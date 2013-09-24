@@ -10,8 +10,10 @@
 </ul>
 
 <% if current_user %>
- <h4>Make a Reservation</h4>
+ <h4>Make a Reservation at <%= @restaurant.name %></h4>
   <%= form_for([@restaurant, @reservation]) do |f| %>
+
+    <% render "form" %>
 
     <fieldset>
       Select Reservation Date and Time <em>(one hour increments only)</em>
@@ -29,6 +31,9 @@
 <% end %>
 
 
+<%= @restaurant.reservations.each.inspect do |r| %>
+  <%= r.reservation_time %>
+<% end %>
 <br />
 
 

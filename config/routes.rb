@@ -1,7 +1,7 @@
 SeatYourself::Application.routes.draw do
-  get "reservations/show"
-  get "reservations/new"
-  get "reservations/edit"
+  # get "reservations/show"
+  # get "reservations/new"
+  # get "reservations/edit"
   # get "sessions/new"
   # get "sessions/create"
   # get "sessions/destroy"

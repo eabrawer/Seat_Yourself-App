@@ -7,8 +7,13 @@ class ReservationsController < ApplicationController
   def new
   end
 
+  def reservation_params
+    params.require(:reservation).permit(:reservation_time)
+  end
+
   def create
-  	@reservation = @restaurant.reservation.build(params[:reservation])
+    load_restaurant
+  	@reservation = @restaurant.reservations.build(reservation_params)
     @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to restaurants_url, notice: 'Reservation created successfully'
